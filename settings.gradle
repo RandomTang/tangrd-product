@@ -1,0 +1,4 @@
+rootProject.name = 'tangrd-product'
+
+include 'oauth-service'
+include 'product-service'

@@ -1,0 +1,21 @@
+server:
+  port: 9000
+
+spring:
+  application:
+    name: product-oauth-service
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:9000
+  web:
+    cors:
+      allowed-origins: "http://localhost:8800"
+      allowed-methods: "*"
+      allowed-headers: "*"
+
+logging:
+  level:
+    org.springframework.security: DEBUG
+    org.springframework.web: DEBUG 

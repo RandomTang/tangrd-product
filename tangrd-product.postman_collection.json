@@ -1,0 +1,202 @@
+{
+	"info": {
+		"_postman_id": "de6c7224-f7a6-4c25-94d2-1fc212aab214",
+		"name": "tangrd-product",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "search",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"searchTerm\": \"phone\",\r\n  \"page\": 0,\r\n  \"size\": 10,\r\n  \"useFulltext\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{product-service}}/products/search",
+					"host": [
+						"{{product-service}}"
+					],
+					"path": [
+						"products",
+						"search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{product-service}}/products/:id",
+					"host": [
+						"{{product-service}}"
+					],
+					"path": [
+						"products",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"productCode\": \"P005\",\r\n    \"name\": \"Dell Monitor\",\r\n    \"description\": \"Dell 27-inch 4K monitor\",\r\n    \"price\": 2199.00,\r\n    \"stock\": 70\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{product-service}}/products/:id",
+					"host": [
+						"{{product-service}}"
+					],
+					"path": [
+						"products",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{product-service}}/products/:id",
+					"host": [
+						"{{product-service}}"
+					],
+					"path": [
+						"products",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "accessTokenUrl",
+				"value": "{{oauth-service}}/oauth2/token",
+				"type": "string"
+			},
+			{
+				"key": "authUrl",
+				"value": "{{oauth-service}}/oauth2/authorize",
+				"type": "string"
+			},
+			{
+				"key": "tokenName",
+				"value": "product-token",
+				"type": "string"
+			},
+			{
+				"key": "tokenType",
+				"value": "Bearer",
+				"type": "string"
+			},
+			{
+				"key": "accessToken",
+				"value": "eyJraWQiOiIyMGQ0MmFmYy05MmI3LTRlZWUtOTRiZS00YTZiZmQ4YmQ4OGUiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiYXVkIjoicHJvZHVjdHMtY2xpZW50IiwibmJmIjoxNzQ1NjAwNjExLCJzY29wZSI6WyJwcm9kdWN0cy5yZWFkIiwib3BlbmlkIiwicHJvZHVjdHMud3JpdGUiXSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo5MDAwIiwiZXhwIjoxNzQ1NjAyNDExLCJpYXQiOjE3NDU2MDA2MTEsImp0aSI6ImVhMWE3NDQwLTcxNTUtNDNjZC05YmFmLTU4ZjMzNjI4M2NhNiJ9.ndp5tgbTXI244WbEb-zsQlFUZ_p5SqFNbgXdStJO5UrXS4r_77H9pCxc7bnFg47-oYE0h_rm57Gv1imwPmsz8apdle_xFP222tWBZfuPDkCCcueOpM-BteRaGLqHH00ZxaX4vklzPKpBoDLTiQXcKEtmo4oYz2d_9Rls-6ZSz2VVXgT0z-77Pd2qTPLGT-aImey6GCbWMcZmYTur54biowEekDXCl6pogYnhWsdStQ0QZMsnpOeRbVvsmElOPMCHyAca16O8n6akIwTQR2XW5Da1dglfgwaXKj0ldIqk9Tw8DMIspH7Nr75dvFh_cbsEWWNiGmWrFURzzPq9tnQG9w",
+				"type": "string"
+			},
+			{
+				"key": "redirect_uri",
+				"value": "http://localhost:8800/api/login/oauth2/code/product-client",
+				"type": "string"
+			},
+			{
+				"key": "clientSecret",
+				"value": "product-secret",
+				"type": "string"
+			},
+			{
+				"key": "clientId",
+				"value": "product-client",
+				"type": "string"
+			},
+			{
+				"key": "useBrowser",
+				"value": false,
+				"type": "boolean"
+			},
+			{
+				"key": "client_authentication",
+				"value": "header",
+				"type": "string"
+			},
+			{
+				"key": "scope",
+				"value": "openid product.read product.write",
+				"type": "string"
+			},
+			{
+				"key": "addTokenTo",
+				"value": "header",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
